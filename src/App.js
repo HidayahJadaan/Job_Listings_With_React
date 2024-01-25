@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Header from './components/header/Header';
+import JobList from './components/jobs/JobList';
+import JobDetails from './components/job-details/JobDetails';
+import './data/data'
+import { Routes, Route, Navigate } from 'react-router-dom';
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+ 
+  return(
+    <div>
+
+      <Header/>
+
+      <Routes>
+        <Route path='/'  element={<Navigate to='/jobs' />}/>
+        <Route path='/jobs'  element={<JobList />}/>
+        <Route path='/jobs/:position'  element={<JobDetails />}/>
+      
+      </Routes>
     </div>
   );
 }
